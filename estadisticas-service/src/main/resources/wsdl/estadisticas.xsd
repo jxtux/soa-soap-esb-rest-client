@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://soa.antoni.com/estadisticas"
+           targetNamespace="http://soa.antoni.com/estadisticas"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="estadistica">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="partidoId" type="xs:string"/>
+            <xs:element name="seleccionId" type="xs:string"/>
+            <xs:element name="golesFavor" type="xs:int"/>
+            <xs:element name="golesContra" type="xs:int"/>
+            <xs:element name="posesion" type="xs:int"/>
+            <xs:element name="remates" type="xs:int"/>
+            <xs:element name="faltas" type="xs:int"/>
+            <xs:element name="puntos" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="resumenSeleccion">
+        <xs:sequence>
+            <xs:element name="seleccionId" type="xs:string"/>
+            <xs:element name="partidosJugados" type="xs:int"/>
+            <xs:element name="golesFavor" type="xs:int"/>
+            <xs:element name="golesContra" type="xs:int"/>
+            <xs:element name="diferenciaGoles" type="xs:int"/>
+            <xs:element name="puntos" type="xs:int"/>
+            <xs:element name="posesionPromedio" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getAllEstadisticasRequest"><xs:complexType/></xs:element>
+    <xs:element name="getAllEstadisticasResponse"><xs:complexType><xs:sequence><xs:element name="estadisticas" minOccurs="0"><xs:complexType><xs:sequence><xs:element name="estadistica" type="tns:estadistica" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element>
+
+    <xs:element name="getEstadisticasBySeleccionRequest"><xs:complexType><xs:sequence><xs:element name="seleccionId" type="xs:string"/></xs:sequence></xs:complexType></xs:element>
+    <xs:element name="getEstadisticasBySeleccionResponse"><xs:complexType><xs:sequence><xs:element name="estadisticas" minOccurs="0"><xs:complexType><xs:sequence><xs:element name="estadistica" type="tns:estadistica" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element>
+
+    <xs:element name="getEstadisticasByPartidoRequest"><xs:complexType><xs:sequence><xs:element name="partidoId" type="xs:string"/></xs:sequence></xs:complexType></xs:element>
+    <xs:element name="getEstadisticasByPartidoResponse"><xs:complexType><xs:sequence><xs:element name="estadisticas" minOccurs="0"><xs:complexType><xs:sequence><xs:element name="estadistica" type="tns:estadistica" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType></xs:element>
+
+    <xs:element name="getResumenSeleccionRequest"><xs:complexType><xs:sequence><xs:element name="seleccionId" type="xs:string"/></xs:sequence></xs:complexType></xs:element>
+    <xs:element name="getResumenSeleccionResponse"><xs:complexType><xs:sequence><xs:element name="resumen" type="tns:resumenSeleccion"/></xs:sequence></xs:complexType></xs:element>
+</xs:schema>

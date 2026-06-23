@@ -1,0 +1,50 @@
+[
+  {
+    "id": "PER",
+    "nombre": "Perú",
+    "confederacion": "CONMEBOL",
+    "grupo": "A",
+    "rankingFifa": 32,
+    "entrenador": "Jorge Fossati"
+  },
+  {
+    "id": "ARG",
+    "nombre": "Argentina",
+    "confederacion": "CONMEBOL",
+    "grupo": "A",
+    "rankingFifa": 1,
+    "entrenador": "Lionel Scaloni"
+  },
+  {
+    "id": "BRA",
+    "nombre": "Brasil",
+    "confederacion": "CONMEBOL",
+    "grupo": "A",
+    "rankingFifa": 5,
+    "entrenador": "Dorival Júnior"
+  },
+  {
+    "id": "JPN",
+    "nombre": "Japón",
+    "confederacion": "AFC",
+    "grupo": "A",
+    "rankingFifa": 18,
+    "entrenador": "Hajime Moriyasu"
+  },
+  {
+    "id": "FRA",
+    "nombre": "Francia",
+    "confederacion": "UEFA",
+    "grupo": "B",
+    "rankingFifa": 2,
+    "entrenador": "Didier Deschamps"
+  },
+  {
+    "id": "ESP",
+    "nombre": "España",
+    "confederacion": "UEFA",
+    "grupo": "B",
+    "rankingFifa": 8,
+    "entrenador": "Luis de la Fuente"
+  }
+]

@@ -1,0 +1,30 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: rest-client-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+logging:
+  pattern:
+    level: "%5p [trace:%X{correlationId}]"
+soa:
+  client:
+    esb:
+      base-url: ${ESB_BASE_URL:http://esb-service:8080}
+    security:
+      user-token: ${ESB_USER_TOKEN:esb-token-2026}
+      admin-token: ${ESB_ADMIN_TOKEN:esb-admin-token-2026}
+      client-certificate: ${ESB_CLIENT_CERTIFICATE:SOA-CLIENT-CERT-2026}
+    retry:
+      max-attempts: ${CLIENT_RETRY_MAX_ATTEMPTS:2}
+      backoff-ms: ${CLIENT_RETRY_BACKOFF_MS:300}
+    timeout:
+      seconds: ${CLIENT_TIMEOUT_SECONDS:8}

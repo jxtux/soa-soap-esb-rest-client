@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sel="http://soa.antoni.com/selecciones">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <sel:getSeleccionByIdRequest>
+      <sel:id>PER</sel:id>
+    </sel:getSeleccionByIdRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

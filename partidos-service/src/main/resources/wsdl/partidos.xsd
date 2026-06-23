@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://soa.antoni.com/partidos"
+           targetNamespace="http://soa.antoni.com/partidos"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="partido">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="fecha" type="xs:string"/>
+            <xs:element name="estadio" type="xs:string"/>
+            <xs:element name="ciudad" type="xs:string"/>
+            <xs:element name="grupo" type="xs:string"/>
+            <xs:element name="seleccionLocalId" type="xs:string"/>
+            <xs:element name="seleccionVisitanteId" type="xs:string"/>
+            <xs:element name="golesLocal" type="xs:int" minOccurs="0"/>
+            <xs:element name="golesVisitante" type="xs:int" minOccurs="0"/>
+            <xs:element name="estado" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getAllPartidosRequest"><xs:complexType/></xs:element>
+    <xs:element name="getAllPartidosResponse">
+        <xs:complexType><xs:sequence><xs:element name="partidos" minOccurs="0"><xs:complexType><xs:sequence><xs:element name="partido" type="tns:partido" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPartidoByIdRequest"><xs:complexType><xs:sequence><xs:element name="id" type="xs:string"/></xs:sequence></xs:complexType></xs:element>
+    <xs:element name="getPartidoByIdResponse"><xs:complexType><xs:sequence><xs:element name="partido" type="tns:partido" minOccurs="0"/><xs:element name="mensaje" type="xs:string"/></xs:sequence></xs:complexType></xs:element>
+
+    <xs:element name="getPartidosBySeleccionRequest"><xs:complexType><xs:sequence><xs:element name="seleccionId" type="xs:string"/></xs:sequence></xs:complexType></xs:element>
+    <xs:element name="getPartidosBySeleccionResponse">
+        <xs:complexType><xs:sequence><xs:element name="partidos" minOccurs="0"><xs:complexType><xs:sequence><xs:element name="partido" type="tns:partido" minOccurs="0" maxOccurs="unbounded"/></xs:sequence></xs:complexType></xs:element></xs:sequence></xs:complexType>
+    </xs:element>
+</xs:schema>

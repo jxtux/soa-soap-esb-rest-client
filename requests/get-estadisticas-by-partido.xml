@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:est="http://soa.antoni.com/estadisticas">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <est:getEstadisticasByPartidoRequest>
+      <est:partidoId>P001</est:partidoId>
+    </est:getEstadisticasByPartidoRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

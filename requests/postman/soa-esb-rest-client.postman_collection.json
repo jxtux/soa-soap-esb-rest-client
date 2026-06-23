@@ -1,0 +1,281 @@
+{
+  "info": {
+    "name": "SOA SOAP + ESB + Cliente REST",
+    "description": "Colección para probar los 3 servicios SOAP, el ESB y el cliente REST. El cliente REST consume al ESB; el ESB consume los servicios SOAP.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "clientBaseUrl",
+      "value": "http://localhost:8090/api/client",
+      "type": "string"
+    },
+    {
+      "key": "esbBaseUrl",
+      "value": "http://localhost:8080/api/esb",
+      "type": "string"
+    },
+    {
+      "key": "userToken",
+      "value": "esb-token-2026",
+      "type": "string"
+    },
+    {
+      "key": "adminToken",
+      "value": "esb-admin-token-2026",
+      "type": "string"
+    },
+    {
+      "key": "clientCertificate",
+      "value": "SOA-CLIENT-CERT-2026",
+      "type": "string"
+    },
+    {
+      "key": "correlationId",
+      "value": "postman-demo-001",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Cliente REST - consume ESB",
+      "item": [
+        {
+          "name": "Health del cliente REST y ESB",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/health"
+          }
+        },
+        {
+          "name": "Modelo de seguridad del cliente REST",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{clientBaseUrl}}/security/model"
+          }
+        },
+        {
+          "name": "Catálogo de capacidades",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/catalog"
+          }
+        },
+        {
+          "name": "Listar partidos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/partidos"
+          }
+        },
+        {
+          "name": "Detalle de partido P001 - orquesta 3 SOAP vía ESB",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/partidos/P001/detalle"
+          }
+        },
+        {
+          "name": "Resumen de selección PER",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/selecciones/PER/resumen"
+          }
+        },
+        {
+          "name": "Partidos por selección PER",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/selecciones/PER/partidos"
+          }
+        },
+        {
+          "name": "Estadísticas del partido P001",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/estadisticas/partido/P001"
+          }
+        },
+        {
+          "name": "Tabla grupo A",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/grupos/A/tabla"
+          }
+        },
+        {
+          "name": "Admin - Governance routes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/admin/governance/routes"
+          }
+        },
+        {
+          "name": "Admin - Governance policies",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/admin/governance/policies"
+          }
+        },
+        {
+          "name": "Admin - Auditoría",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{clientBaseUrl}}/admin/governance/audits"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ESB directo - pruebas de seguridad",
+      "item": [
+        {
+          "name": "Health ESB público",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{esbBaseUrl}}/health"
+          }
+        },
+        {
+          "name": "ESB protegido SIN headers - debe fallar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{esbBaseUrl}}/partidos"
+          }
+        },
+        {
+          "name": "ESB partidos con token USER y certificado",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              },
+              {
+                "key": "X-Client-Certificate",
+                "value": "{{clientCertificate}}"
+              },
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{esbBaseUrl}}/partidos"
+          }
+        },
+        {
+          "name": "ESB governance con token USER - debe fallar por autorización",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}"
+              },
+              {
+                "key": "X-Client-Certificate",
+                "value": "{{clientCertificate}}"
+              },
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{esbBaseUrl}}/governance/policies"
+          }
+        },
+        {
+          "name": "ESB governance con token ADMIN - permitido",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{adminToken}}"
+              },
+              {
+                "key": "X-Client-Certificate",
+                "value": "{{clientCertificate}}"
+              },
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": "{{esbBaseUrl}}/governance/policies"
+          }
+        }
+      ]
+    }
+  ]
+}

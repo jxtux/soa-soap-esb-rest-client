@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:par="http://soa.antoni.com/partidos">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <par:getPartidosBySeleccionRequest>
+      <par:seleccionId>PER</par:seleccionId>
+    </par:getPartidosBySeleccionRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,213 @@
+{
+  "info": {
+    "_postman_id": "811b99df-534f-463c-a981-e78dfb394cb0",
+    "name": "SOA SOAP + ESB + Cliente REST",
+    "description": "Colección para probar los 3 servicios SOAP, el ESB y el cliente REST. El cliente REST consume al ESB; el ESB consume los servicios SOAP.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "1973730",
+    "_collection_link": "https://go.postman.co/collection/1973730-811b99df-534f-463c-a981-e78dfb394cb0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Cliente REST - consume ESB",
+      "item": [
+        {
+          "name": "Health del cliente REST y ESB",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/health",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar partidos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/partidos",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "partidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Detalle de partido P001 - orquesta 3 SOAP vía ESB",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/partidos/P006/detalle",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "partidos",
+                "P006",
+                "detalle"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Resumen de selección PER",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/selecciones/PER/resumen",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "selecciones",
+                "PER",
+                "resumen"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Partidos por selección PER",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/selecciones/PER/partidos",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "selecciones",
+                "PER",
+                "partidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Estadísticas del partido P001",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/estadisticas/partido/P001",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "estadisticas",
+                "partido",
+                "P001"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Tabla grupo A",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Correlation-Id",
+                "value": "{{correlationId}}"
+              }
+            ],
+            "url": {
+              "raw": "{{clientBaseUrl}}/grupos/A/tabla",
+              "host": [
+                "{{clientBaseUrl}}"
+              ],
+              "path": [
+                "grupos",
+                "A",
+                "tabla"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "clientBaseUrl",
+      "value": "http://localhost:8090/api/client",
+      "type": "string"
+    },
+    {
+      "key": "esbBaseUrl",
+      "value": "http://localhost:8080/api/esb",
+      "type": "string"
+    },
+    {
+      "key": "userToken",
+      "value": "esb-token-2026",
+      "type": "string"
+    },
+    {
+      "key": "adminToken",
+      "value": "esb-admin-token-2026",
+      "type": "string"
+    },
+    {
+      "key": "clientCertificate",
+      "value": "SOA-CLIENT-CERT-2026",
+      "type": "string"
+    },
+    {
+      "key": "correlationId",
+      "value": "postman-demo-001",
+      "type": "string"
+    }
+  ]
+}

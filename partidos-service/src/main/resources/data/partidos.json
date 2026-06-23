@@ -1,0 +1,74 @@
+[
+  {
+    "id": "P001",
+    "fecha": "2026-06-11T19:00:00-05:00",
+    "estadio": "Estadio Nacional",
+    "ciudad": "Lima",
+    "grupo": "A",
+    "seleccionLocalId": "PER",
+    "seleccionVisitanteId": "ARG",
+    "golesLocal": 1,
+    "golesVisitante": 2,
+    "estado": "FINALIZADO"
+  },
+  {
+    "id": "P002",
+    "fecha": "2026-06-12T18:00:00-05:00",
+    "estadio": "Arena Amazonia",
+    "ciudad": "Manaos",
+    "grupo": "A",
+    "seleccionLocalId": "BRA",
+    "seleccionVisitanteId": "JPN",
+    "golesLocal": 3,
+    "golesVisitante": 1,
+    "estado": "FINALIZADO"
+  },
+  {
+    "id": "P003",
+    "fecha": "2026-06-13T20:00:00-05:00",
+    "estadio": "Stade de France",
+    "ciudad": "Paris",
+    "grupo": "B",
+    "seleccionLocalId": "FRA",
+    "seleccionVisitanteId": "ESP",
+    "golesLocal": 2,
+    "golesVisitante": 2,
+    "estado": "FINALIZADO"
+  },
+  {
+    "id": "P004",
+    "fecha": "2026-06-16T19:00:00-05:00",
+    "estadio": "Monumental",
+    "ciudad": "Buenos Aires",
+    "grupo": "A",
+    "seleccionLocalId": "PER",
+    "seleccionVisitanteId": "BRA",
+    "golesLocal": null,
+    "golesVisitante": null,
+    "estado": "PROGRAMADO"
+  },
+  {
+    "id": "P005",
+    "fecha": "2026-06-17T18:00:00-05:00",
+    "estadio": "Saitama Stadium",
+    "ciudad": "Saitama",
+    "grupo": "A",
+    "seleccionLocalId": "ARG",
+    "seleccionVisitanteId": "JPN",
+    "golesLocal": null,
+    "golesVisitante": null,
+    "estado": "PROGRAMADO"
+  },
+  {
+    "id": "P006",
+    "fecha": "2026-06-18T21:00:00-05:00",
+    "estadio": "Santiago Bernabeu",
+    "ciudad": "Madrid",
+    "grupo": "B",
+    "seleccionLocalId": "ESP",
+    "seleccionVisitanteId": "PER",
+    "golesLocal": null,
+    "golesVisitante": null,
+    "estado": "PROGRAMADO"
+  }
+]

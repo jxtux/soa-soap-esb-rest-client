@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: esb-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+logging:
+  pattern:
+    level: "%5p [trace:%X{correlationId}]"
+soa:
+  esb:
+    auth:
+      enabled: ${ESB_AUTH_ENABLED:true}
+      user-token: ${ESB_USER_TOKEN:esb-token-2026}
+      admin-token: ${ESB_ADMIN_TOKEN:esb-admin-token-2026}
+      client-certificate: ${ESB_CLIENT_CERTIFICATE:SOA-CLIENT-CERT-2026}
+    downstream:
+      partidos-url: ${PARTIDOS_SOAP_URL:http://partidos-service:8081/ws}
+      selecciones-url: ${SELECCIONES_SOAP_URL:http://selecciones-service:8082/ws}
+      estadisticas-url: ${ESTADISTICAS_SOAP_URL:http://estadisticas-service:8083/ws}
+    retry:
+      max-attempts: ${ESB_RETRY_MAX_ATTEMPTS:3}
+      backoff-ms: ${ESB_RETRY_BACKOFF_MS:500}
+    timeout:
+      seconds: ${ESB_TIMEOUT_SECONDS:5}

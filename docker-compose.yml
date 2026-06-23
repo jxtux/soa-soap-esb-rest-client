@@ -1,0 +1,68 @@
+services:
+  partidos-service:
+    build: ./partidos-service
+    container_name: partidos-service
+    ports:
+      - "8081:8081"
+    networks:
+      - soa-net
+
+  selecciones-service:
+    build: ./selecciones-service
+    container_name: selecciones-service
+    ports:
+      - "8082:8082"
+    networks:
+      - soa-net
+
+  estadisticas-service:
+    build: ./estadisticas-service
+    container_name: estadisticas-service
+    ports:
+      - "8083:8083"
+    networks:
+      - soa-net
+
+  esb-service:
+    build: ./esb-service
+    container_name: esb-service
+    ports:
+      - "8080:8080"
+    environment:
+      PARTIDOS_SOAP_URL: http://partidos-service:8081/ws
+      SELECCIONES_SOAP_URL: http://selecciones-service:8082/ws
+      ESTADISTICAS_SOAP_URL: http://estadisticas-service:8083/ws
+      ESB_USER_TOKEN: esb-token-2026
+      ESB_ADMIN_TOKEN: esb-admin-token-2026
+      ESB_CLIENT_CERTIFICATE: SOA-CLIENT-CERT-2026
+      ESB_RETRY_MAX_ATTEMPTS: 3
+      ESB_RETRY_BACKOFF_MS: 500
+      ESB_TIMEOUT_SECONDS: 5
+    depends_on:
+      - partidos-service
+      - selecciones-service
+      - estadisticas-service
+    networks:
+      - soa-net
+
+  rest-client-service:
+    build: ./rest-client-service
+    container_name: rest-client-service
+    ports:
+      - "8090:8090"
+    environment:
+      ESB_BASE_URL: http://esb-service:8080
+      ESB_USER_TOKEN: esb-token-2026
+      ESB_ADMIN_TOKEN: esb-admin-token-2026
+      ESB_CLIENT_CERTIFICATE: SOA-CLIENT-CERT-2026
+      CLIENT_RETRY_MAX_ATTEMPTS: 2
+      CLIENT_RETRY_BACKOFF_MS: 300
+      CLIENT_TIMEOUT_SECONDS: 8
+    depends_on:
+      - esb-service
+    networks:
+      - soa-net
+
+networks:
+  soa-net:
+    driver: bridge

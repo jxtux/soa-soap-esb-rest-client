@@ -1,0 +1,68 @@
+[
+  {
+    "id": "E001",
+    "partidoId": "P001",
+    "seleccionId": "PER",
+    "golesFavor": 1,
+    "golesContra": 2,
+    "posesion": 45,
+    "remates": 8,
+    "faltas": 11,
+    "puntos": 0
+  },
+  {
+    "id": "E002",
+    "partidoId": "P001",
+    "seleccionId": "ARG",
+    "golesFavor": 2,
+    "golesContra": 1,
+    "posesion": 55,
+    "remates": 13,
+    "faltas": 9,
+    "puntos": 3
+  },
+  {
+    "id": "E003",
+    "partidoId": "P002",
+    "seleccionId": "BRA",
+    "golesFavor": 3,
+    "golesContra": 1,
+    "posesion": 61,
+    "remates": 17,
+    "faltas": 8,
+    "puntos": 3
+  },
+  {
+    "id": "E004",
+    "partidoId": "P002",
+    "seleccionId": "JPN",
+    "golesFavor": 1,
+    "golesContra": 3,
+    "posesion": 39,
+    "remates": 7,
+    "faltas": 12,
+    "puntos": 0
+  },
+  {
+    "id": "E005",
+    "partidoId": "P003",
+    "seleccionId": "FRA",
+    "golesFavor": 2,
+    "golesContra": 2,
+    "posesion": 49,
+    "remates": 10,
+    "faltas": 10,
+    "puntos": 1
+  },
+  {
+    "id": "E006",
+    "partidoId": "P003",
+    "seleccionId": "ESP",
+    "golesFavor": 2,
+    "golesContra": 2,
+    "posesion": 51,
+    "remates": 12,
+    "faltas": 9,
+    "puntos": 1
+  }
+]
